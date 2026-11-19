@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>نظام إدارة النتائج - المشروع النهائي</title>
+    <!-- ربط Bootstrap 5 النسخة العربية RTL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- ربط ملف التنسيق المطور -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="py-5">
+
+    <div class="container">
+        <header class="text-center mb-5">
+            <h1 class="main-title display-5 mb-2">🎓 نظام إدارة النتائج التفاعلي</h1>
+            <p class="text-muted">إدخال الدرجات، حساب المتوسطات، وتفعيل قرارات لجنة الرأفة بدقة</p>
+        </header>
+
+        <main class="row g-4">
+            <!-- قسم إدخال البيانات -->
+            <section class="col-lg-5">
+                <div class="card custom-card p-4">
+                    <h2 class="h4 fw-bold mb-3 text-dark border-bottom pb-2">📝 بيانات الطالب</h2>
+                    
+                    <!-- صندوق رسائل الخطأ باللون الأحمر -->
+                    <div id="errorBox" class="alert alert-danger shake-alert d-none" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label for="studentName" class="form-label">اسم الطالب</label>
+                        <input type="text" id="studentName" class="form-control" placeholder="مثال: أحمد محمد">
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-4">
+                            <label for="grade1" class="form-label">المادة 1</label>
+                            <input type="number" id="grade1" class="form-control" placeholder="0-100">
+                        </div>
+                        <div class="col-4">
+                            <label for="grade2" class="form-label">المادة 2</label>
+                            <input type="number" id="grade2" class="form-control" placeholder="0-100">
+                        </div>
+                        <div class="col-4">
+                            <label for="grade3" class="form-label">المادة 3</label>
+                            <input type="number" id="grade3" class="form-control" placeholder="0-100">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="attendance" class="form-label">نسبة الحضور (%)</label>
+                        <input type="number" id="attendance" class="form-control" placeholder="مثال: 85">
+                    </div>
+
+                    <button type="button" id="addStudentBtn" class="btn btn-custom-primary w-100 mb-2">
+                        ➕ إضافة طالب
+                    </button>
+                    <button type="button" id="mercyBtn" class="btn btn-custom-success w-100">
+                        ⚖️ تفعيل لجنة الرأفة
+                    </button>
+                </div>
+            </section>
+
+            <!-- قسم عرض القوائم والتقارير -->
+            <section class="col-lg-7">
+                <!-- صندوق قائمة الطلاب المضافين -->
+                <div class="card custom-card p-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                        <h2 class="h4 fw-bold mb-0 text-dark">📋 قائمة الطلاب المسجلين</h2>
+                        <span id="studentsCountBadge" class="badge bg-secondary rounded-pill">0 طلاب</span>
+                    </div>
+                    <ul id="studentsListGroup" class="list-group list-group-flush">
+                        <li class="list-group-item text-muted text-center py-4 bg-light rounded-3">
+                            لا توجد طلاب مسجلين حتى الآن. ابدأ بإضافة طالب من القائمة الجانبية.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- صندوق التقرير النهائي للجنة الرأفة -->
+                <div class="card custom-card p-4">
+                    <h2 class="h4 fw-bold mb-3 text-success border-bottom pb-2">📊 التقرير النهائي للجنة الرأفة</h2>
+                    <div id="mercyReportBox" class="text-secondary text-center py-3 bg-light rounded-3">
+                        اضغط على زر <strong>"تفعيل لجنة الرأفة"</strong> لمعالجة بيانات الطلاب المتعثرين (40 - 49).
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ربط ملف الجافا سكريبت مع خاصية defer -->
+    <script src="main.js" defer></script>
+</body>
+</html>
